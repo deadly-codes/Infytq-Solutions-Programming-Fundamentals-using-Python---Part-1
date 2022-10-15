@@ -1,0 +1,26 @@
+#lex_auth_012693782475948032141
+
+def calculate_bill_amount(food_type,quantity_ordered,distance_in_kms):
+    bill_amount=0
+    delivery_charge=0
+    #write your logic here
+    v_combo=120
+    nv_combo=150
+    for i in range(1,distance_in_kms+1):
+        if(i==1 or i==2 or i==3):
+            delivery_charge=0
+        elif(i==4 or i==5 or i==6):
+            delivery_charge=delivery_charge+3
+        else:
+            delivery_charge=delivery_charge+6
+    if(food_type=='V' and quantity_ordered>=1 and distance_in_kms>0):
+        bill_amount=(v_combo*quantity_ordered)+(delivery_charge)
+    elif(food_type =='N' and quantity_ordered>=1 and distance_in_kms>0):
+        bill_amount=(nv_combo*quantity_ordered)+(delivery_charge)
+    else:
+        bill_amount=-1
+    return bill_amount 
+
+#Provide different values for food_type,quantity_ordered,distance_in_kms and test your program
+bill_amount=calculate_bill_amount("N",2,7)
+print(bill_amount)
