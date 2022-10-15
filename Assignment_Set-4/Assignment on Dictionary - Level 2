@@ -1,0 +1,38 @@
+#lex_auth_01269444890062848087
+
+def find_correct(word_dict):
+    #start writing your code here  
+    key=[]
+    value=[]
+    count=0
+    correct=0
+    wrong=0
+    atmost=0
+    result=[]
+    for i,j in word_dict.items():
+            key.append(i)
+            value.append(j)
+    for i in range(len(key)):
+        if(len(key[i])==len(value[i]) and key[i]==value[i]):
+            correct+=1
+        elif((len(key[i])==len(value[i]))==False):
+            wrong+=1
+        else:
+            for j in range(len(key[i])):
+                if((key[i][j]==value[i][j])==False):
+                    count+=1
+                    if(count>2):
+                        wrong+=1
+                        break
+            if(count<=2):
+                atmost+=1
+            count=0
+           
+           
+    result=[correct,atmost,wrong] 
+    return result
+            
+        
+
+word_dict={"THEIR": "THEIR","BUSINESS":"BISINESS","WINDOWS":"WINDMILL","WERE":"WEAR","SAMPLE":"SAMPLE"}
+print(find_correct(word_dict))
