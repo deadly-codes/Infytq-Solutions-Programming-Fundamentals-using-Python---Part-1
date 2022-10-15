@@ -1,0 +1,25 @@
+#lex_auth_01269444195664691284
+
+def encrypt_sentence(sentence):
+    vowels=['a','e','i','o','u']
+    final_list=[]
+    list1=sentence.split(" ")
+    for x,word in enumerate(list1):
+        if (x+1)%2!=0:
+            final_list.append(word[::-1])
+        else:
+            vow=[]
+            new=[]
+            for i in word:
+                if i not in vowels:
+                    new.append(i)
+                else:
+                    vow.append(i)
+            new.extend(vow)
+            final_list.append("".join(new))
+    return (" ".join(final_list))
+    #start writing your code here
+
+sentence="The sun rises in the east"
+encrypted_sentence=encrypt_sentence(sentence)
+print(encrypted_sentence)
